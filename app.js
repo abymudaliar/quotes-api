@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const quotes = require("./routes/quoteRoutes");
 const connectDB = require("./db/connect");
 require("dotenv").config();
 //middleware
 
 app.use(express.json());
-
+app.use(cors());
 //Routes
 app.get("/hello", (req, res) => {
   res.send("Quotes");
